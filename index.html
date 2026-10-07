@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Job Application Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="app-layout">
+    <!-- Form Section -->
+    <div class="container">
+      <div class="form-header">
+        <h2>Add Job Application</h2>
+        <p>Track your ongoing applications and their current stages.</p>
+      </div>
+
+      <form id="form">
+        <div class="field-group">
+          <label for="company">Company Name</label>
+          <input type="text" id="company" placeholder="e.g. Stripe" required />
+        </div>
+
+        <div class="form-grid">
+          <div class="field-group">
+            <label for="role">Role</label>
+            <input type="text" id="role" placeholder="e.g. Frontend Engineer" required />
+          </div>
+
+          <div class="field-group">
+            <label for="salary">Salary</label>
+            <input type="text" id="salary" placeholder="e.g. $110,000 / yr" />
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="field-group">
+            <label for="jobType">Job Type</label>
+            <select id="jobType" required>
+              <option value="" disabled selected>Select Type</option>
+              <option value="FullTime">Full Time</option>
+              <option value="Internship">Internship</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="jobStatus">Status</label>
+            <select id="jobStatus" required>
+              <option value="" disabled selected>Select Status</option>
+              <option value="Applied">Applied</option>
+              <option value="Interview">Interview</option>
+              <option value="Selected">Selected</option>
+              <option value="Rejected">Rejected</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit">Add Job</button>
+        <button type="button" id="btn-cancel">Cancel</button>
+      </form>
+    </div>
+
+    <!-- Cards Section -->
+    <div id="jobList">
+      <!-- Sample Card 1: Interview Status -->
+      <!-- <div class="job-card">
+        <div class="job-card-header">
+          <div>
+            <h3 class="job-card-title">Frontend Engineer</h3>
+            <p class="job-card-company">Stripe</p>
+          </div>
+          <span class="badge status-interview">Interview</span>
+        </div>
+
+        <div class="job-card-meta">
+          <span class="badge badge-meta">Full Time</span>
+          <span class="badge badge-meta">$110,000 / yr</span>
+        </div>
+
+        <div class="job-card-footer">
+          <button type="button" class="btn-delete">Delete</button>
+        </div>
+      </div> -->
+
+      <!-- Sample Card 2: Selected Status -->
+      <!-- <div class="job-card">
+        <div class="job-card-header">
+          <div>
+            <h3 class="job-card-title">Full Stack Developer Intern</h3>
+            <p class="job-card-company">Google</p>
+          </div>
+          <span class="badge status-selected">Selected</span>
+        </div>
+
+        <div class="job-card-meta">
+          <span class="badge badge-meta">Internship</span>
+          <span class="badge badge-meta">$4,500 / mo</span>
+        </div>
+
+        <div class="job-card-footer">
+          <button type="button" class="btn-delete">Delete</button>
+        </div>
+      </div> -->
+    </div>
+  </main>
+<script src="script.js" ></script>
+
+</body>
+</html>
