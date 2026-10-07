@@ -15,14 +15,14 @@ let editJobIndex = null;
 loadAndDisplayJobs();
 
 async function getData() {
-  const url = "http://localhost:3000/users";
+  const url = "http://localhost:3000/jobs";
   try {
     const response = await fetch(url);
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
     const result = await response.json();
-    return result.users || [];
+    return result.jobs || [];
   } catch (error) {
     console.error("Error fetching data from DB:", error);
     return [];
@@ -43,7 +43,7 @@ async function saveDataToDB(job) {
     salary: job.salary,
   };
 
-  const url = "http://localhost:3000/user";
+  const url = "http://localhost:3000/job";
 
   try {
     const response = await fetch(url, {
@@ -101,7 +101,7 @@ form.addEventListener("submit", async (e) => {
 
 
 async function updateDataInDB(id, job) {
-  console.log(id,job)
+  // console.log(id,job)
   try {
     const payload = {
       companyName: job.company,
@@ -111,7 +111,7 @@ async function updateDataInDB(id, job) {
       salary: job.salary,
     };
 
-     const url = `http://localhost:3000/user/update/${id}`;
+     const url = `http://localhost:3000/job/update/${id}`;
     const response = await fetch(url,{
       method: "PUT",
       headers: {
@@ -160,8 +160,8 @@ function displayJobs() {
 
 async function deleteJob(idOrIndex) {
   // If your backend has a delete endpoint (e.g., DELETE /user/:id):
-  // await fetch(`http://localhost:3000/user/${idOrIndex}`, { method: 'DELETE' });
-  // await loadAndDisplayJobs();
+  await fetch(`http://localhost:3000/job/delete/${idOrIndex}`, { method: 'DELETE' });
+  await loadAndDisplayJobs();
 
   // Temporary client-side remove until you add a DELETE route:
   if (typeof idOrIndex === "number") {
